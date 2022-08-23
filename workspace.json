@@ -3,6 +3,8 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "backend": "libs/backend",
+    "common": "libs/common",
     "instagram": "apps/instagram",
     "instagram-e2e": "apps/instagram-e2e"
   }
