@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "instagram": "apps/instagram",
+    "instagram-e2e": "apps/instagram-e2e"
+  }
+}
