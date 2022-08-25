@@ -5,12 +5,14 @@
 
 import { createLoggerImpl, setupSwagger } from '@clone-instagram/backend';
 import { Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { logger: createLoggerImpl('InstaApi') });
+  const configService = app.get(ConfigService);
 
   if (process.env['NODE' + '_ENV'] !== 'production') {
     setupSwagger(app, {
@@ -22,7 +24,7 @@ async function bootstrap() {
     });
   }
 
-  const port = process.env.PORT || 3333;
+  const port = configService.get<string>('PORT') || 3333;
   await app.listen(port);
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}`,
