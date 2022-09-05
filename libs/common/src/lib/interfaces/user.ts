@@ -1,7 +1,9 @@
+import { Base } from './base';
+
 const GENDERS = ['남자', '여자'] as const;
 export type GenderType = typeof GENDERS[number];
 
-export interface User {
+export interface User extends Base {
   name: string;
   userName: string;
   email: string;
